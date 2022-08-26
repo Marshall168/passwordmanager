@@ -1,13 +1,20 @@
 from cryptography.fernet import Fernet
 
+def load_key():
+    file = open('key.key', 'rb').read()
+    key = file.read()
+    file.close()
+    return key
+
+key = load_key
 mast_pwd = input('Please enter the master password? ')
 
+'''
 def write_key():
     key = Fernet.generate_key()
     with open('key.key', 'wb') as key_file:
         key_file.write(key)
-
-write_key()
+'''
 
 def view():
     with open('passwords.txt', 'r') as f:
